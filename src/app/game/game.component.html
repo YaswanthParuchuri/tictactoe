@@ -1,0 +1,14 @@
+<h1>Welcome to Tic Tac toe game!</h1>
+
+
+<div class="container"> 
+    <span *ngIf="gameOver" ><img src="./assets/congrats.gif" /> <br/><h1>{{this.winner}} is the winner!</h1></span> 
+    <span *ngIf="tie" ><img src="./assets/tie.gif" /> <br/> <h1>It's a tie!</h1></span> 
+    <button type="button" class="btn btn-primary" *ngIf="!divOpen" (click)="start()" >Start</button>
+    <div class="board" *ngIf="divOpen">
+        <div *ngFor="let cell of cells; let i=index" (click)="CreateMove(i)">{{cell}}</div>
+    </div>       
+    <button *ngIf="divOpen" type="button" class="btn btn-warning" (click)="reset()" >Reset</button>
+      
+</div>
+
